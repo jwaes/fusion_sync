@@ -1,5 +1,5 @@
 <odoo>
-    <menuitem id="fusion_menu_root" name="Fusion" web_icon="fusion_sync,static/description/icon.png" sequence="5"/>
+    <menuitem id="fusion_menu_root" name="Fusion" parent="mrp.menu_mrp_root" sequence="5"/>
     <menuitem id="fusion_component_menu" name="Components" parent="fusion_menu_root" action="action_fusion_component"/>
     <menuitem id="fusion_user_menu" name="Users" parent="fusion_menu_root" action="action_fusion_user"/>
     <menuitem id="fusion_component_version_menu" name="Component Versions" parent="fusion_menu_root" action="action_fusion_component_version"/>

@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_fusion_component" model="ir.sequence">
+        <field name="name">Fusion Component Sequence</field>
+        <field name="code">fusion.component.seq</field>
+        <field name="prefix">FC/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

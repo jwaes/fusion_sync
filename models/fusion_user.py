@@ -5,7 +5,11 @@ class FusionUser(models.Model):
     _name = 'fusion.user'
     _description = 'Fusion User'
 
-    fusion_user_id = fields.Char(string='Fusion User ID', required=True, index=True)
+    _sql_constraints = [
+        ('uuid_uniq', 'unique(uuid)', 'UUID must be unique!'),
+    ]
+
+    uuid = fields.Char(string='UUID', required=True, index=True)
     name = fields.Char(string='Name', required=True)
     email = fields.Char(string='Email')
     role = fields.Char(string='Role')

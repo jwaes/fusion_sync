@@ -1,6 +1,6 @@
 {
     'name': 'Fusion Sync',
-    'version': '0.1.3',
+    'version': '0.1.6',
     'author': 'Jaco',
     'company': 'Jacotech',
     'license': 'AGPL-3',
@@ -9,6 +9,7 @@
     'application': True,
     'data': [
         'security/ir.model.access.csv',
+        'data/fusion_component_sequence.xml',
         'views/fusion_component_views.xml',
         'views/fusion_user_views.xml',
         'views/fusion_component_version_views.xml',
