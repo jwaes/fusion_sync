@@ -5,7 +5,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="fusion_user_id"/>
+                <field name="uuid"/>
                 <field name="email"/>
                 <field name="role"/>
             </tree>
@@ -20,7 +20,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="fusion_user_id"/>
+                        <field name="uuid"/>
                         <field name="email"/>
                         <field name="role"/>
                         <field name="partner_id"/>
