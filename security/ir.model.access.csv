@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fusion_component,access_fusion_component,model_fusion_component,base.group_user,1,1,1,1
+access_fusion_user,access_fusion_user,model_fusion_user,base.group_user,1,1,1,1
+access_fusion_component_version,access_fusion_component_version,model_fusion_component_version,base.group_user,1,1,1,1
+access_fusion_component_version_assembly_line,access_fusion_component_version_assembly_line,model_fusion_component_version_assembly_line,base.group_user,1,1,1,1

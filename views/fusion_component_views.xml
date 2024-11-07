@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_fusion_component_tree" model="ir.ui.view">
+        <field name="name">fusion.component.tree</field>
+        <field name="model">fusion.component</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="uuid"/>
+                <field name="creation_date"/>
+                <field name="created_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fusion_component_form" model="ir.ui.view">
+        <field name="name">fusion.component.form</field>
+        <field name="model">fusion.component</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="uuid"/>
+                        <field name="creation_date"/>
+                        <field name="created_by"/>
+                    </group>
+                    <notebook>
+                        <page string="Versions">
+                            <field name="version_ids">
+                                <tree>
+                                    <field name="version_number"/>
+                                    <field name="revision_date"/>
+                                    <field name="modified_by"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fusion_component" model="ir.actions.act_window">
+        <field name="name">Fusion Components</field>
+        <field name="res_model">fusion.component</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
