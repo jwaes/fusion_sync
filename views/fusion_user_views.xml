@@ -4,10 +4,8 @@
         <field name="model">fusion.user</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
                 <field name="uuid"/>
                 <field name="email"/>
-                <field name="role"/>
             </tree>
         </field>
     </record>
@@ -19,10 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
                         <field name="uuid"/>
                         <field name="email"/>
-                        <field name="role"/>
                         <field name="partner_id"/>
                     </group>
                 </sheet>

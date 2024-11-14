@@ -1,6 +1,6 @@
 {
     'name': 'Fusion Sync',
-    'version': '0.1.8',
+    'version': '0.1.9',
     'author': 'Jaco',
     'company': 'Jacotech',
     'license': 'AGPL-3',
