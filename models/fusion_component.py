@@ -23,44 +23,43 @@ class FusionComponent(models.Model):
         string='Versions',
     )
 
-@api.model
-def sync_component(self, component_data):
-    component_uuid = component_data.get("uuid")
-    if not component_uuid:
-        raise ValidationError("UUID is required to sync a Fusion component.")
+    @api.model
+    def sync_component(self, component_data):
+        component_uuid = component_data.get("uuid")
+        if not component_uuid:
+            raise ValidationError("UUID is required to sync a Fusion component.")
 
-    component_name = component_data.get("name")
-    creation_date = component_data.get("creation_date")
+        component_name = component_data.get("name")
+        creation_date = component_data.get("creation_date")
 
-    # Access user details from the nested 'created_by' dictionary
-    created_by_data = component_data.get("created_by", {})
-    fusion_user_uuid = created_by_data.get("uuid")
-    fusion_user_email = created_by_data.get("email")
+        # Access user details from the nested 'created_by' dictionary
+        created_by_data = component_data.get("created_by", {})
+        fusion_user_uuid = created_by_data.get("uuid")
+        fusion_user_email = created_by_data.get("email")
 
-    if not fusion_user_uuid or not fusion_user_email:
-        raise ValidationError("Both UUID and email are required to sync the Fusion user.")
+        if not fusion_user_uuid or not fusion_user_email:
+            raise ValidationError("Both UUID and email are required to sync the Fusion user.")
 
-    # Search for or create the Fusion user
-    fusion_user = self.env['fusion.user'].search([('uuid', '=', fusion_user_uuid)], limit=1)
-    if not fusion_user:
-        fusion_user = self.env['fusion.user'].create({
-            'uuid': fusion_user_uuid,
-            'email': fusion_user_email
-        })
+        # Search for or create the Fusion user
+        fusion_user = self.env['fusion.user'].search([('uuid', '=', fusion_user_uuid)], limit=1)
+        if not fusion_user:
+            fusion_user = self.env['fusion.user'].create({
+                'uuid': fusion_user_uuid,
+                'email': fusion_user_email
+            })
 
-    # Define values for a new component
-    vals = {
-        'uuid': component_uuid,
-        'name': component_name,
-        'creation_date': creation_date,
-        'created_by': fusion_user.id,
-    }
+        # Define values for a new component
+        vals = {
+            'uuid': component_uuid,
+            'name': component_name,
+            'creation_date': creation_date,
+            'created_by': fusion_user.id,
+        }
 
-    # Check if the component already exists by UUID
-    component = self.search([('uuid', '=', component_uuid)], limit=1)
-    if component:
-        return component  # Return existing component without modifying immutable fields
+        # Check if the component already exists by UUID
+        component = self.search([('uuid', '=', component_uuid)], limit=1)
+        if component:
+            return component  # Return existing component without modifying immutable fields
 
-    # If the component doesn't exist, create it with the provided values
-    return self.create(vals)
-
+        # If the component doesn't exist, create it with the provided values
+        return self.create(vals)
