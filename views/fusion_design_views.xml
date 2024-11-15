@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fusion_design_tree" model="ir.ui.view">
+        <field name="name">fusion.design.tree</field>
+        <field name="model">fusion.design</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="uuid"/>
+                <field name="name"/>
+                <field name="creation_date"/>
+                <field name="created_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fusion_design_form" model="ir.ui.view">
+        <field name="name">fusion.design.form</field>
+        <field name="model">fusion.design</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="uuid"/>
+                        <field name="name"/>
+                        <field name="creation_date"/>
+                        <field name="created_by"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="fusion_design_menu"
+              name="Fusion Designs"
+              parent="fusion_sync_menu"
+              action="action_fusion_design"/>
+</odoo>

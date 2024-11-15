@@ -5,7 +5,6 @@ from odoo.exceptions import UserError
 class FusionComponentVersion(models.Model):
     _name = 'fusion.component.version'
     _description = 'Fusion Component Version'
-    _order = 'fusion_component_id, version_number desc'
 
     fusion_component_id = fields.Many2one(
         comodel_name='fusion.component',
@@ -19,12 +18,16 @@ class FusionComponentVersion(models.Model):
         comodel_name='fusion.user',
         string='Modified By',
     )
-    # status = fields.Selection([...], string='Status')
-    # Other version-specific fields...
 
-    # One-to-many relation to assembly lines
-    assembly_line_ids = fields.One2many(
-        comodel_name='fusion.component.version.assembly.line',
-        inverse_name='fusion_component_version_id',
-        string='Assembly Lines',
+    # Link to design version for internal components
+    fusion_design_version_id = fields.Many2one(
+        comodel_name='fusion.design.version',
+        string='Design Version',
+        ondelete='cascade',
+    )
+
+    # External design version reference (if applicable)
+    external_design_version_id = fields.Many2one(
+        comodel_name='fusion.design.version',
+        string='External Design Version',
     )
