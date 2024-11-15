@@ -9,13 +9,15 @@ class FusionDesign(models.Model):
     _description = 'Fusion Design Document'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'name, id'
+    _sql_constraints = [
+        ('uuid_unique', 'unique(uuid)', 'UUID must be unique'),
+    ]
 
     # Basic Information
     uuid = fields.Char(
         string='UUID',
         required=True,
         index=True,
-        unique=True,
         tracking=True,
         help="Unique identifier from Fusion 360"
     )

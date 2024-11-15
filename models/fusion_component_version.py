@@ -61,14 +61,14 @@ class FusionComponentVersion(models.Model):
     )
 
     # Assembly Information
-    assembly_line_ids = fields.One2many(
+    assembly_lines = fields.One2many(
         comodel_name='fusion.component.version.assembly.line',
         inverse_name='fusion_component_version_id',
         string='Assembly Lines',
         help="List of child components in this assembly"
     )
     assembly_line_count = fields.Integer(
-        string='Assembly Lines',
+        string='Number of Assembly Lines',
         compute='_compute_assembly_line_count',
         store=True,
         help="Number of child components in this assembly"
@@ -92,10 +92,10 @@ class FusionComponentVersion(models.Model):
         for version in self:
             version.display_name = f"{version.fusion_component_id.name} (v{version.version_number})"
 
-    @api.depends('assembly_line_ids')
+    @api.depends('assembly_lines')
     def _compute_assembly_line_count(self):
         for version in self:
-            version.assembly_line_count = len(version.assembly_line_ids)
+            version.assembly_line_count = len(version.assembly_lines)
 
     def _compute_used_in_count(self):
         for version in self:
