@@ -1,6 +1,6 @@
 {
     'name': 'Fusion Sync',
-    'version': '0.1.18',
+    'version': '0.1.19',
     'category': 'Manufacturing',
     'summary': 'Synchronize Fusion 360 designs with Odoo',
     'author': 'Jaco',
