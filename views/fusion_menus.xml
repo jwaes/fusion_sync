@@ -1,7 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="fusion_menu_root" name="Fusion" parent="mrp.menu_mrp_root" sequence="5"/>
-    <menuitem id="fusion_component_menu" name="Components" parent="fusion_menu_root" action="action_fusion_component"/>
-    <menuitem id="fusion_user_menu" name="Users" parent="fusion_menu_root" action="action_fusion_user"/>
-    <menuitem id="fusion_component_version_menu" name="Component Versions" parent="fusion_menu_root" action="action_fusion_component_version"/>
-    <menuitem id="fusion_component_version_assembly_line_menu" name="Assembly Lines" parent="fusion_menu_root" action="action_fusion_component_version_assembly_line"/>
+    <!-- Main Menu -->
+    <menuitem id="menu_fusion_sync_root"
+        name="Fusion Sync"
+        web_icon="fusion_sync,static/description/icon.png"
+        sequence="50"/>
+
+    <!-- Designs Menu -->
+    <menuitem id="menu_fusion_design"
+        name="Designs"
+        parent="menu_fusion_sync_root"
+        sequence="10"/>
+
+    <menuitem id="menu_fusion_design_list"
+        name="Designs"
+        parent="menu_fusion_design"
+        action="action_fusion_design"
+        sequence="10"/>
+
+    <menuitem id="menu_fusion_design_version_list"
+        name="Design Versions"
+        parent="menu_fusion_design"
+        action="action_fusion_design_version"
+        sequence="20"/>
+
+    <!-- Components Menu -->
+    <menuitem id="menu_fusion_component"
+        name="Components"
+        parent="menu_fusion_sync_root"
+        sequence="20"/>
+
+    <menuitem id="menu_fusion_component_list"
+        name="Components"
+        parent="menu_fusion_component"
+        action="action_fusion_component"
+        sequence="10"/>
+
+    <menuitem id="menu_fusion_component_version_list"
+        name="Component Versions"
+        parent="menu_fusion_component"
+        action="action_fusion_component_version"
+        sequence="20"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_fusion_configuration"
+        name="Configuration"
+        parent="menu_fusion_sync_root"
+        sequence="100"/>
+
+    <menuitem id="menu_fusion_user_list"
+        name="Fusion Users"
+        parent="menu_fusion_configuration"
+        action="action_fusion_user"
+        sequence="10"
+        groups="group_fusion_sync_manager"/>
+
 </odoo>
