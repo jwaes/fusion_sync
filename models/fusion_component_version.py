@@ -31,3 +31,10 @@ class FusionComponentVersion(models.Model):
         comodel_name='fusion.design.version',
         string='External Design Version',
     )
+
+    assembly_line_ids = fields.One2many(
+        comodel_name='fusion.component.version.assembly.line',
+        inverse_name='fusion_component_version_id',
+        string='Assembly Lines',
+    )
+

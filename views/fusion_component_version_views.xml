@@ -16,13 +16,11 @@
         <field name="name">fusion.component.version.form</field>
         <field name="model">fusion.component.version</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Component Version">
                 <sheet>
                     <group>
                         <field name="fusion_component_id"/>
                         <field name="version_number"/>
-                        <field name="revision_date"/>
-                        <field name="modified_by"/>
                     </group>
                     <notebook>
                         <page string="Assembly Lines">
@@ -30,7 +28,6 @@
                                 <tree editable="bottom">
                                     <field name="child_component_version_id"/>
                                     <field name="quantity"/>
-                                    <field name="sequence"/>
                                 </tree>
                             </field>
                         </page>
@@ -39,6 +36,7 @@
             </form>
         </field>
     </record>
+    
 
     <record id="action_fusion_component_version" model="ir.actions.act_window">
         <field name="name">Fusion Component Versions</field>
